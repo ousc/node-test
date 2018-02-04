@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <style media="screen">
+        .table{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table class="table table-bordered table-hover">
+    <tr class="info">
+        <td>id</td>
+        <td>姓名</td>
+        <td>电话</td>
+        <td>邮箱</td>
+    </tr>
+</table>
+<script src="javascripts/jquery.min.js"></script><!--通过jq渲染-->
+<script>$.get("https://www.easy-mock.com/mock/5a5b5ba932a4fc7429df228a/user1",function(data) {var json = data.data,s = '';for (var i = 0; i < json.length; i++) s += '<tr><td contenteditable=\'true\' data-role=\'id\'>' + json[i].userId + '</td><td contenteditable=\'true\' data-role=\'name\'>' + json[i].username + '</td><td contenteditable=\'true\' data-role=\'tel\'>' + json[i].phoneNumber + '</td>' + '<td contenteditable=\'true\' data-role=\'mail\'>' + json[i].email + '</td></tr>';$('table').append(s);});</script>
+</body>
+</html>
