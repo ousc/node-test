@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%=title%></title>
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <style media="screen">
+    .table{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<table class="table table-bordered table-hover">
+      <tr class="info">
+        <td>id</td>
+        <td>姓名</td>
+        <td>电话</td>
+        <td>邮箱</td>
+      </tr>
+    <% for(var i = 0; i < params.length; i++) {%>
+        <tr>
+            <td contenteditable='true' data-role='name'><%=params[i].userId%></td>
+            <td contenteditable='true' data-role='sex'><%=params[i].username%></td>
+            <td contenteditable='true' data-role='age'><%=params[i].phoneNumber%></td>
+            <td contenteditable='true' data-role='tel'><%=params[i].email%></td>
+        </tr>
+    <% } %>
+</table>
+<script src="javascripts/jquery.min.js"></script>
+</body>
+</html>
