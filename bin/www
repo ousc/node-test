@@ -34,7 +34,8 @@ server.on('listening', onListening);
  * @type {*|Mongoose}
  */
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/test');
+mongoose.connect('mongodb://localhost:27017/coco');
+
 
 /**
  * Normalize a port into a number, string, or false.
