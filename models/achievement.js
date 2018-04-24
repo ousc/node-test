@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var EarnedachievementsSchema = new Schema({
     _id: {
-        type: Object,
+        type: mongoose.Schema.Types.ObjectId,
         default:mongoose.Types.ObjectId()
     },
     user: String,

@@ -2,10 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-    _id: {
-        type: Object,
-        default:mongoose.Types.ObjectId()
-    },
+    // _id: mongoose.Schema.Types.ObjectId,
     slug: String,
     name: String,
     email: String,
@@ -16,11 +13,15 @@ var UserSchema = new Schema({
     },
     createdOnHost: {
         type: String,
-        default: 'code.imayuan.com'
+        default: 'xy.imayuan.com'
     },
     preferredLanguage: {
         type: String,
         default: 'zh-HANS'
+    },
+    courseInstance: {
+        type: Array,
+        default: ["5adec7e447560503235d9f3f", "5adec7f847560503235d9f41", "5adec7fd47560503235d9f43", "5adec80047560503235d9f45", "5adec80347560503235d9f47", "5adec80e47560503235d9f49", "5adec95e47560503235d9f5f"]
     },
     testGroupNumber: {
         type: Number,
