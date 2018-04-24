@@ -19,8 +19,7 @@ router.post('/',function(req, res, next) {
             if (err){
                 console.log(err);
                 return res.status(500).json({msg:'保存出错',err:err});}
-            console.log('用户添加成功：' + user._id);
-            async.series([
+                console.log('用户添加成功：' + user._id);
                 // 执行成就更新
                 Earnedachievement.create({user: user._id},function (err, doc) {
                     if(err) {
@@ -28,7 +27,7 @@ router.post('/',function(req, res, next) {
                         return res.status(500).json({msg:'保存出错',err:err});
                     }
                     console.log('保存成就成功：'+doc);
-                }),
+                });
                 //执行班级信息修改
                 ClassRoom.update({codeCamel: add_user.classId},{$push:{members:user._id}},function (err, doc) {
                     if(err) {
@@ -36,18 +35,16 @@ router.post('/',function(req, res, next) {
                         return res.status(500).json({msg:'保存出错',err:err});
                     }
                     console.log('保存班级成功：'+doc);
-                }),
+                });
                 CourseInstance.update({classroomID: mongoose.Types.ObjectId('5adebd75ffac425159fe4f60')},{$push:{members:user._id}},{multi:true},function (err, doc) {
                     if(err) {
                         console.log(err);
                         return res.status(500).json({msg:'保存出错',err:err});
                     }
                     console.log('保存课程成功：'+doc);
-                })
-            ],function() {
-                console.log("注册成功");
-                res.status(201).json({msg:'注册成功',userId:user._id});       // 存储成功
-            });
+                });
+            // console.log("注册成功");
+            // res.status(201).json({msg:'注册成功',userId:user._id});       // 存储成功
         });
 });
 
